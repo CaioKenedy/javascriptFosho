@@ -1,30 +1,54 @@
-const listaAnimais = document.querySelector(".animais-lista");
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
 
-const animaisTop = listaAnimais.offsetTop;
+const primeiraImagem = document.querySelector("img");
 
-const height = listaAnimais.scrollHeight;
+const primeiraImagemTop = primeiraImagem.offsetTop;
 
-const primeiroh2 = document.querySelector("h2");
-const h2left = primeiroh2.offsetLeft;
-
-const h2rect = primeiroh2.getBoundingClientRect();
-
-if (h2rect.top < 0) {
-  console.log("passou do elemento");
+// Retorne a soma da largura de todas as imagens
+function somaImagens() {
+  const Imagens = document.querySelectorAll("img");
+  let soma = 0;
+  Imagens.forEach((item) => {
+    soma = soma + item.offsetWidth;
+  });
+  console.log(soma);
 }
 
-console.log(
-  window.innerWidth,
-  window.outerWidth,
-  window.innerHeight,
-  window.outerHeight,
-  window.pageYOffset
-);
+window.onload = function () {
+  somaImagens();
+};
 
-const small = window.matchMedia("(max-width: 600px)");
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
 
-if (small.matches) {
-  console.log("Tela menor que 600px");
-} else {
-  console.log("Tela maior que 600px");
+const links = document.querySelectorAll("a");
+console.log(links);
+
+links.forEach((link) => {
+  const linkWidth = link.offsetWidth;
+  const linkHeight = link.offsetHeight;
+  if (linkWidth >= 48 && linkHeight >= 48) {
+    console.log(link, "Possui boa acessibilidade");
+  } else {
+    console.log(link, "Não possui boa acessibilidade");
+  }
+});
+
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+
+// const menu = document.querySelector(".menu");
+// const browserWidth = window.innerWidth;
+
+// if (browserWidth < 720) {
+//   menu.classList.add("menu-mobile");
+// }
+
+const browserM = window.matchMedia("(max-width: 720px)").matches;
+
+if (browserM) {
+  const menu = document.querySelector(".menu");
+  menu.classList.add("menu-mobile");
 }
