@@ -1,54 +1,53 @@
-// Verifique a distância da primeira imagem
-// em relação ao topo da página
+const h1 = document.querySelector("h1");
 
-const primeiraImagem = document.querySelector("img");
+h1.innerHTML = "Geleia";
 
-const primeiraImagemTop = primeiraImagem.offsetTop;
+// outerHTML pega todo o html do elemento, toda estrutura
+// innterHTML pega o html interno
+// innerText pega apenas o texto, sem tags
 
-// Retorne a soma da largura de todas as imagens
-function somaImagens() {
-  const Imagens = document.querySelectorAll("img");
-  let soma = 0;
-  Imagens.forEach((item) => {
-    soma = soma + item.offsetWidth;
-  });
-  console.log(soma);
-}
+const listaFaq = document.querySelector(".faq-lista");
+console.log(listaFaq.children[0].nextElementSibling);
 
-window.onload = function () {
-  somaImagens();
-};
+const animais = document.querySelector(".animais");
+const contato = document.querySelector(".contato");
+const titulo = contato.querySelector(".titulo");
+const mapa = document.querySelector(".mapa");
 
-// Verifique se os links da página possuem
-// o mínimo recomendado para telas utilizadas
-// com o dedo. (48px/48px de acordo com o google)
+animais.appendChild(titulo);
 
-const links = document.querySelectorAll("a");
-console.log(links);
+// contato.appendChild(lista); // move lista para o final de contato
+// contato.insertBefore(lista, titulo); // insere a lista antes de titulo
+// contato.removeChild(titulo); // remove titulo de contato
+// contato.replaceChild(lista, titulo); // substitui titulo por lista
 
-links.forEach((link) => {
-  const linkWidth = link.offsetWidth;
-  const linkHeight = link.offsetHeight;
-  if (linkWidth >= 48 && linkHeight >= 48) {
-    console.log(link, "Possui boa acessibilidade");
-  } else {
-    console.log(link, "Não possui boa acessibilidade");
-  }
-});
+// --------------------------- //
 
-// Se o browser for menor que 720px,
-// adicione a classe menu-mobile ao menu
+const novoh1 = document.createElement("h1");
+novoh1.innerText = "novo titulo lekote";
+novoh1.classList.add("titulo");
 
-// const menu = document.querySelector(".menu");
-// const browserWidth = window.innerWidth;
+mapa.appendChild(novoh1);
 
-// if (browserWidth < 720) {
-//   menu.classList.add("menu-mobile");
-// }
+// ----- clonar elementos ---------------- //
 
-const browserM = window.matchMedia("(max-width: 720px)").matches;
+const menu = document.querySelector(".menu");
 
-if (browserM) {
-  const menu = document.querySelector(".menu");
-  menu.classList.add("menu-mobile");
-}
+const novoMenu = menu.cloneNode(true);
+const copy = document.querySelector(".copy");
+copy.appendChild(novoMenu);
+
+//------------ substituicao ------- //
+
+// const faq = document.querySelector(".faq");
+// const faqHtml = faq.innerHTML;
+// const animaisExer = document.querySelector(".animais");
+// const animaisHtml = animaisExer.innerHTML;
+// const faqLista = document.querySelector(".faq-lista");
+
+// faq.replaceChild(animaisExer, faqLista);
+
+const animaisQ = document.querySelector(".animais");
+const faq = document.querySelector(".faq");
+
+faq.innerHTML = animais.innerHTML;
