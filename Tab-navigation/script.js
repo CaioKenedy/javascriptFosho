@@ -1,5 +1,6 @@
 const tabMenu = document.querySelectorAll(".js-tabmenu li");
 const tabContent = document.querySelectorAll(".js-tabcontent section");
+console.log(tabContent);
 
 if (tabMenu.length && tabContent.length) {
   tabContent[0].classList.add("ativo");
