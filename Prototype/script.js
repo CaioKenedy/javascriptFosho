@@ -1,32 +1,38 @@
-function Pessoa(nome, idade) {
+// Crie uma função construtora de Pessoas
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retorne
+// o nome completo da pessoa
+
+function Pessoas(nome, sobrenome, idade) {
   this.nome = nome;
+  this.sobrenome = sobrenome;
   this.idade = idade;
 }
 
-Pessoa.prototype.andar = function () {
-  return this.nome + " andou";
+Pessoas.prototype.fullName = function () {
+  return `${this.nome} ${this.sobrenome}`;
 };
 
-Pessoa.prototype.cagar = function () {
-  return this.nome + " cagou";
-};
+const caio = new Pessoas("Caio", "Kenedy", 26);
 
-const caio = new Pessoa("Caio", 26);
-console.log(Pessoa.prototype);
+// Liste os métodos acessados por
+// dados criados com NodeList,
+// HTMLCollection, Document
 
-const pais = "Brasil";
-const cidade = new String("Rio");
+// NodeList / forEach, item, entries, etc
+// HTMLCollection / item, length, namedItem
+// Document / possui muitos só checar o .prototype ou Object.getOwnPropertyNames(NodeList.prototype)
 
-const listaAnimais = ["Cachorro", "Gato", "Peixe", "Passaro"];
+// Liste os construtores dos dados abaixo
+const li = document.querySelector("li");
 
-const lista = document.querySelectorAll("li");
-const listaArray = Array.prototype.slice.call(lista);
-const listaArrayNova = Array.from(lista);
+li; // HTMLLIELEMTENT
+li.click; // FUNCTION
+li.innerText; // STRING
+li.value; // NUMBER
+li.hidden; // BOOLEAN
+li.offsetLeft; // NUMBER
+li.click(); // UNDEFINED
 
-const Carro = {
-  marca: "Ford",
-  preco: 2000,
-  acelerar() {
-    return true;
-  },
-};
+// Qual o construtor do dado abaixo:
+li.hidden.constructor.name; //String
