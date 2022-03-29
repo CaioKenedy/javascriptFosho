@@ -27,3 +27,15 @@ const listaPrecos = ["R$ 99", "R$ 199", "R$ 12000"];
 listaPrecos.forEach((preco) => {
   console.log(preco.padStart(10, "."));
 });
+
+let listaItens = "Camisas Bonés Calças Bermudas Vestidos Saias";
+
+listaItens = listaItens.replace(/[ ]+/g, ", ");
+console.log(listaItens);
+
+const arrayLista = listaItens.split(", ");
+console.log(arrayLista);
+
+const htmlText = "<div>O melhor item</div><div>A melhor lista</div>";
+const htmlArray = htmlText.split("div");
+const novoHtml = htmlArray.join("section");
