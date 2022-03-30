@@ -1,23 +1,25 @@
-const ano = 2022;
-const preco = new Number(23);
+// Retorne um número aleatório
+// entre 1050 e 2000
+const aleatorio = Math.round(Math.random() * (2000 - 1050 + 1)) + 1050;
 
-Number.isNaN(5); // false
-Number.isInteger(23.6); // false
-console.log(Number.parseFloat("99.40")); // parseInt deixa inteiro
-const carro = 23000.33886;
-console.log(+carro.toFixed(3));
-const aguaPreco = 2.99;
-console.log(aguaPreco.toString(10));
+// Retorne o maior número da lista abaixo
+const numeros = "4, 5, 20, 8, 9";
+const arrayNumeros = numeros.split(", ");
+const inteiros = Math.max(...arrayNumeros);
+// Crie uma função para limpar os preços
+// e retornar os números com centavos arredondados
+// depois retorne a soma total
+const listaPrecos = ["R$ 59,99", " R$ 100,222", "R$ 230  ", "r$  200"];
 
-let valor = 23.24;
-valor = valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-//////////////////////////////////////////////////////
+function limparPreco(preco) {
+  preco = +preco.toUpperCase().replace("R$", "").trim().replace(",", ".");
+  preco = +preco.toFixed(2);
+  return preco;
+}
 
-Math.max(5, 34, 54, 2, 5);
+let soma = 0;
+listaPrecos.forEach((preco) => {
+  soma += limparPreco(preco);
+});
 
-const aleatorio = Math.round(Math.random() * 1000);
-console.log(aleatorio);
-
-const aleatorioEntre = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
-
-console.log(aleatorioEntre);
+console.log(soma);
