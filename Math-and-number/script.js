@@ -11,3 +11,13 @@ console.log(aguaPreco.toString(10));
 
 let valor = 23.24;
 valor = valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+//////////////////////////////////////////////////////
+
+Math.max(5, 34, 54, 2, 5);
+
+const aleatorio = Math.round(Math.random() * 1000);
+console.log(aleatorio);
+
+const aleatorioEntre = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
+
+console.log(aleatorioEntre);
