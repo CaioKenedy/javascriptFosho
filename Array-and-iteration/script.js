@@ -1,65 +1,63 @@
-const carros = ["Ford", "Fiat", "Honda"];
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+const cursos = document.querySelectorAll(".curso");
+const arrayCursos = Array.from(cursos);
 
-carros.forEach((item, index, array) => {
-  console.log(item);
+const objetosCurso = arrayCursos.map((curso) => {
+  const titulo = curso.querySelector("h1").innerText;
+  const descricao = curso.querySelector("p").innerText;
+  const aulas = curso.querySelector(".aulas").innerText;
+  const horas = curso.querySelector(".horas").innerText;
+
+  return {
+    titulo,
+    descricao,
+    aulas,
+    horas,
+  };
 });
 
-const li = document.querySelectorAll("li");
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+const maiorQue100 = numeros.filter((n) => n > 100);
 
-li.forEach((i) => i.classList.add("ativa"));
-
-const carrinhos = ["Porsche", "Audi", "Mercedes"];
-
-const newCarrinhos = carros.map((item) => {
-  return "Carro " + item;
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ["Guitarra", "Baixo", "Bateria", "Teclado"];
+const temBaixo = instrumentos.some((i) => {
+  return i == "Baixo";
 });
 
-const numeros = [2, 4, 5, 6, 78];
-const numerosX2 = numeros.map((n) => n * 2);
-
-console.log(numerosX2);
-
-// const numeros = [2, 4, 6, 8, 10, 12, 14];
-// const numerosX3 = numeros.map((n) => n * 3);
-
-// numerosX3; // [6, 12, 18, 24, 30, 36, 42];
-
-// console.log(numerosX3);
-
-const aulas = [
+// Retorne o valor total das compras
+const compras = [
   {
-    nome: "HTML 1",
-    min: 15,
+    item: "Banana",
+    preco: "R$ 4,99",
   },
   {
-    nome: "HTML 2",
-    min: 10,
+    item: "Ovo",
+    preco: "R$ 2,99",
   },
   {
-    nome: "CSS 1",
-    min: 20,
+    item: "Carne",
+    preco: "R$ 25,49",
   },
   {
-    nome: "JS 1",
-    min: 25,
+    item: "Refrigerante",
+    preco: "R$ 5,35",
+  },
+  {
+    item: "Quejo",
+    preco: "R$ 10,60",
   },
 ];
 
-const tempoAulas = aulas.map((aula) => aula.min);
+const valorTotal = compras.reduce((acumulador, item) => {
+  const precoLimpo = +item.preco.replace("R$ ", "").replace(",", ".");
 
-const nomeAulas = aulas.map((aula) => aula.nome);
+  return acumulador + precoLimpo;
+}, 0);
 
-// REDUCE //
-
-const acumulando = [10, 25, 30];
-const total1 = acumulando.reduce((acumulador, atual) => {
-  return acumulador + atual;
-});
-
-const total2 = acumulando.reduce((acc, cur) => acc + cur, 100);
-
-const maiorValor = acumulando.reduce((anterior, atual) => {
-  return anterior < atual ? atual : anterior;
-});
-
-console.log(maiorValor);
+console.log(valorTotal);
