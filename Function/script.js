@@ -1,36 +1,16 @@
-function areaQuadrado(lado) {
-  return lado * lado;
-}
+const frutas = ["Uva", "Maça", "Banana"];
 
-const perimetroQuadrado = new Function("lado", "return lado * 4");
-
-function somar(n1, n2) {
-  return n1 + n2;
-}
-
-function dizerEai() {
-  console.log("Eai meu mano");
-}
-
-dizerEai.call();
-
-const carro = {
-  marca: "Ford",
-  ano: 2022,
+Array.prototype.mostrarThis = function () {
+  console.log(this);
 };
 
-function descricaoCarro() {
-  console.log(this.marca + " " + this.ano);
-}
+Array.prototype.pop.call(frutas);
+frutas.pop();
 
-descricaoCarro.call({ marca: "Chevrolet", ano: 2009 });
+// ATÉ AQUI TA UM POUCO CONFUSO, QUANDO REALMENTE VAMOS UTILIZAR ESSE ARRAY.PROTOTYPE???
 
-const carros = ["Civic", "Corolla", "Fusca"];
-const frutas = ["Banana", "Uva", "Pêra"];
-carros.forEach((carro) => {
-  console.log(carro);
-});
+const li = document.querySelectorAll("li");
 
-carros.forEach.call(carros, (carro) => {
-  console.log(carro);
+const filtro = Array.prototype.filter.call(li, function (item) {
+  return item.classList.contains("ativo");
 });
