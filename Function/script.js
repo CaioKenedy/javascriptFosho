@@ -1,16 +1,34 @@
-const frutas = ["Uva", "Maça", "Banana"];
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
 
-Array.prototype.mostrarThis = function () {
-  console.log(this);
-};
+const paragrafos = document.querySelectorAll("p");
+console.log(paragrafos);
 
-Array.prototype.pop.call(frutas);
-frutas.pop();
+paragrafosArray = Array.from(paragrafos);
 
-// ATÉ AQUI TA UM POUCO CONFUSO, QUANDO REALMENTE VAMOS UTILIZAR ESSE ARRAY.PROTOTYPE???
+const totalChar = paragrafosArray.reduce.call(
+  paragrafosArray,
+  (acumulador, item) => {
+    return acumulador + item.innerText.length;
+  },
+  0
+);
 
-const li = document.querySelectorAll("li");
+console.log(totalChar);
 
-const filtro = Array.prototype.filter.call(li, function (item) {
-  return item.classList.contains("ativo");
-});
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+
+function criarElemento(tag, classe, conteudo) {
+  const elemento = document.createElement(tag);
+  classe ? elemento.classList.add(classe) : null;
+  conteudo ? (elemento.innerHTML = conteudo) : null;
+  return elemento;
+}
+
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+
+const titulo = criarElemento.bind(null, "h1", "titulo");
