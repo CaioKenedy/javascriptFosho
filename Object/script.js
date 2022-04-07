@@ -1,34 +1,63 @@
-// Retorne a soma total de caracteres dos
-// parágrafos acima utilizando reduce
+const person = new Object({
+  name: "Caio",
+  age: 26,
+});
 
-const paragrafos = document.querySelectorAll("p");
-console.log(paragrafos);
-
-paragrafosArray = Array.from(paragrafos);
-
-const totalChar = paragrafosArray.reduce.call(
-  paragrafosArray,
-  (acumulador, item) => {
-    return acumulador + item.innerText.length;
+const car = {
+  wheels: 4,
+  init(value) {
+    this.brand = value;
+    return this;
   },
-  0
-);
+  year: 2020,
+  speed() {
+    return this.brand + " speed up";
+  },
+  honk() {
+    return this.brand + " honk";
+  },
+};
 
-console.log(totalChar);
+const camaro = Object.create(car);
+camaro.init("Camaro");
 
-// Crie uma função que retorne novos elementos
-// html, com os seguintes parâmetros
-// tag, classe e conteudo.
+const ferrari = Object.create(car).init("Ferrari");
 
-function criarElemento(tag, classe, conteudo) {
-  const elemento = document.createElement(tag);
-  classe ? elemento.classList.add(classe) : null;
-  conteudo ? (elemento.innerHTML = conteudo) : null;
-  return elemento;
-}
+const autoFunction = {
+  speedUp() {
+    return "speed up";
+  },
+  honk() {
+    return "honk";
+  },
+};
 
-// Crie uma nova função utilizando a anterior como base
-// essa nova função deverá sempre criar h1 com a
-// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+const bike = {
+  wheels: 2,
+  helmet: true,
+};
 
-const titulo = criarElemento.bind(null, "h1", "titulo");
+const auto = {
+  wheels: 4,
+  trunk: true,
+};
+
+Object.assign(bike, autoFunction);
+
+// Object.defineProperties(bike, {
+//   tankCapacity: {
+//     value: 30,
+//     enumerable: false,
+//   },
+// });
+
+Object.defineProperties(bike, {
+  tankCapacity: {
+    get() {
+      return this.capacity;
+    },
+    set(valor) {
+      return (this.capacity = valor * 4 + " L");
+    },
+  },
+});
