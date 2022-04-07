@@ -61,3 +61,14 @@ Object.defineProperties(bike, {
     },
   },
 });
+
+Object.getOwnPropertyDescriptors(Array);
+Object.getOwnPropertyDescriptors(Array.prototype);
+Object.getOwnPropertyDescriptor(window, "innerHeight");
+Object.getOwnPropertyNames(Array);
+
+const fruit = ["Banana"];
+
+Object.getPrototypeOf(fruit);
+
+Object.prototype.toString.call(); // verifica o tipo de dado
