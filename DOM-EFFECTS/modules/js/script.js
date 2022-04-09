@@ -8,3 +8,4 @@ initScrollSmooth();
 initAnimacaoScroll();
 initAccordion();
 initTabNav();
+initModal();
