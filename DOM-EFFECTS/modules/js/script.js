@@ -10,3 +10,4 @@ initAnimacaoScroll();
 initAccordion();
 initTabNav();
 initModal();
+initToolTip();
