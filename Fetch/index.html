@@ -12,12 +12,32 @@
   <script>
     document.documentElement.className += " js"
   </script>
-  <title>Promises</title>
+  <title>Fetch</title>
 </head>
 
 <body>
-  <div class="conteudo"></div>
-  <h1></h1>
+  <style>
+    label {
+      display: block;
+    }
+
+    input {
+      display: block;
+    }
+  </style>
+
+  <form id="buscaCep">
+    <label for="cep">CEP</label>
+    <input type="text" name="cep" id="cep">
+    <input type="button" value="Buscar cep" id="btnCep">
+  </form>
+  <div class="resultadoCep">
+
+  </div>
+  <div>
+    <h2>Preço BTC</h2>
+    <p class="btc"></p>
+  </div>
 
   <script src="../Fetch/script.js"></script>
 </body>
