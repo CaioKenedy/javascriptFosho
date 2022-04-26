@@ -46,3 +46,24 @@ fetchBtc();
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
 // clicar em próxima
+
+const jokee = document.querySelector(".jokee");
+const jokeBtn = document.getElementById("jokeBtn");
+
+jokeBtn.addEventListener("click", handleClick);
+
+function handleClick(event) {
+  jokes();
+}
+
+function jokes() {
+  fetch("https://api.chucknorris.io/jokes/random")
+    .then((response) => {
+      return response.json();
+    })
+    .then((joke) => {
+      jokee.innerText = joke.value;
+    });
+}
+
+jokes();
