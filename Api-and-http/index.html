@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Playfair+Display+SC&display=swap" rel="stylesheet">
+
+  <script>
+    document.documentElement.className += " js"
+  </script>
+  <title>Api e HTTP</title>
+</head>
+
+<body>
+  <style>
+    label {
+      display: block;
+    }
+
+    input {
+      display: block;
+    }
+  </style>
+
+  <form id="buscaCep">
+    <label for="cep">CEP</label>
+    <input type="text" name="cep" id="cep">
+    <input type="button" value="Buscar cep" id="btnCep">
+  </form>
+  <div class="resultadoCep">
+
+  </div>
+  <div>
+    <h2>Preço BTC</h2>
+    <p class="btc"></p>
+  </div>
+
+  <div>
+    <p class="jokee"></p>
+    <input type="button" value="Proxima" id="jokeBtn">
+  </div>
+
+  <script src="../Api-and-http/script.js"></script>
+</body>
+
+</html>
