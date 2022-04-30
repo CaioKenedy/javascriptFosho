@@ -1,24 +1,29 @@
-fetch("https://pokeapi.co/api/v2/pokemon/1/")
-  .then((response) => {
-    return response.json();
-  })
-  .then((pokemon) => {
-    console.log(pokemon.name);
-  });
+async function puxarDados() {
+  const dadosResponse = await fetch("./dados.json");
+  const dadosJson = await dadosResponse.json();
 
-const url = "https://jsonplaceholder.typicode.com/posts";
-const options = {
-  method: "POST",
-  body: '{"tittle": "Javascript"}',
-  headers: {
-    "Content-Type": "application/json; charset=utf-8",
-  },
-};
+  document.body.innerText = dadosJson.aula;
+}
 
-fetch(url, options)
-  .then((response) => {
-    return response.json();
-  })
-  .then((json) => {
-    console.log(json);
-  });
+puxarDados();
+
+function pegarDados() {
+  const dados = fetch("./clientes.json");
+  dados
+    .then((response) => {
+      return response.json();
+    })
+    .then((arquivos) => {
+      document.body.innerText = arquivos.nome;
+    });
+}
+
+pegarDados();
+
+async function multiplosFetch() {
+  const dadosResponse = await fetch("./dados.json");
+  const clientesResponse = await fetch("./clientes.json");
+
+  const jsonDados = await (await dadosResponse).json();
+  const jsonClientes = await (await clientesResponse).json();
+}
